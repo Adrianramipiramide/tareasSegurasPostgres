@@ -11,8 +11,12 @@ public class UsuarioUseCases {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public boolean login(Usuario usuario){
-        usuarioRepository.login(usuario);
+    public Usuario login(Usuario usuario){
+     return usuarioRepository.login(usuario);
+    }
+
+    public boolean registrarse(Usuario usuario){
+        return usuarioRepository.registro(usuario);
     }
 
 }

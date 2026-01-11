@@ -1,5 +1,51 @@
 package com.example.tareasSeguridad.tarea.domain;
 
-public class Tarea {
+import java.sql.Timestamp;
 
+public class Tarea {
+    int id;
+    String detalle;
+    String prioridad;
+    String estado;
+    Timestamp fechaCreacion;
+    Timestamp fechaFinalizacion;
+    String emailUsuarioCreador;
+
+    public Tarea(int id, String detalle, String prioridad, String estado, Timestamp fechaCreacion, Timestamp fechaFinalizacion, String emailUsuarioCreador) {
+        this.id = id;
+        this.detalle = detalle;
+        this.prioridad = prioridad;
+        this.estado = estado;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaFinalizacion = fechaFinalizacion;
+        this.emailUsuarioCreador = emailUsuarioCreador;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public String getPrioridad() {
+        return prioridad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public Timestamp getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public Timestamp getFechaFinalizacion() {
+        return fechaFinalizacion;
+    }
+
+    public String getEmailUsuarioCreador() {
+        return emailUsuarioCreador;
+    }
 }

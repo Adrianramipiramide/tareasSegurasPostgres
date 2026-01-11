@@ -9,13 +9,13 @@ public interface TareaRepository {
 
     List<Tarea> mostrarMisTareas(Usuario u);
 
-    Tarea verDetallesDeUnaTarea(Tarea t);
+    Tarea verDetallesDeUnaTarea(int id);
 
     Tarea crearTarea(Tarea t);
 
     Tarea asignarTareaAUsusario(Tarea t, Usuario u);
 
-    Tarea cambiarEstado(Tarea t, String estado);
+    Tarea cambiarEstado(int idTarea, String estado);
 
     Tarea modificarTarea(Tarea t, Tarea tareaNueva);
 
