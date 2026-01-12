@@ -18,7 +18,7 @@ public class UsuarioPostgresRepository implements UsuarioRepository {
             statement.setString(1,usuario.getEmail());
             ResultSet rs = statement.executeQuery();
             if (rs.next()){
-                return new Usuario(rs.getString("email"),rs.getString("password"));
+                return new Usuario(rs.getString("email"),rs.getString("pass"));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -28,7 +28,7 @@ public class UsuarioPostgresRepository implements UsuarioRepository {
 
     @Override
     public Boolean registro(Usuario usuario) {
-        String consulta = "insert into usuario (email,password) values (?,?)";
+        String consulta = "insert into usuario (email,pass) values (?,?)";
         try{
             PreparedStatement statement = DBConnectionPostgres.getInstance().prepareStatement(consulta);
             statement.setString(1,usuario.getEmail());

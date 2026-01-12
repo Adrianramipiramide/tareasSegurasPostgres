@@ -13,7 +13,7 @@ public class DBConnectionPostgres {
     public static Connection getInstance() {
         if(connection == null) {
             try {
-                connection = DriverManager.getConnection("jdbc:database-1.cfkmi4o0agyw.us-east-1.rds.amazonaws.com", "postgres", "monzon2025");
+                connection = DriverManager.getConnection("jdbc:postgresql://database-1.cfkmi4o0agyw.us-east-1.rds.amazonaws.com/tareas", "postgres", "monzon2025");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

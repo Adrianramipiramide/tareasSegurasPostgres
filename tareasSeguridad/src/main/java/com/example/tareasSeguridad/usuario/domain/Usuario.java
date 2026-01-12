@@ -17,5 +17,11 @@ public class Usuario {
         return password;
     }
 
-
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
