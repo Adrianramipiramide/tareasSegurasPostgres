@@ -29,5 +29,4 @@ public class TareaRest {
     Tarea crearTarea(@RequestBody Tarea t){
         return tareaUseCases.crearTarea(t);
     }
-
 }

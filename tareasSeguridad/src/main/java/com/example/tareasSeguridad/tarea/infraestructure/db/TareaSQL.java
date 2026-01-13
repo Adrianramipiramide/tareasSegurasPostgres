@@ -7,6 +7,7 @@ import com.example.tareasSeguridad.usuario.domain.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +59,6 @@ public class TareaSQL implements TareaRepository {
             statement.setTimestamp(5,t.getFechaCreacion());
             statement.setTimestamp(6,t.getFechaFinalizacion());
             statement.setString(7,t.getEmailUsuarioCreador());
-
             statement.execute();
 
 

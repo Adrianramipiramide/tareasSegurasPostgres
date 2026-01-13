@@ -1,5 +1,7 @@
 package com.example.tareasSeguridad.tarea.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Timestamp;
 
 public class Tarea {
@@ -7,11 +9,11 @@ public class Tarea {
     String detalle;
     String prioridad;
     String estado;
-    Timestamp fechaCreacion;
-    Timestamp fechaFinalizacion;
+    String fechaCreacion;
+    String fechaFinalizacion;
     String emailUsuarioCreador;
 
-    public Tarea(int id, String detalle, String prioridad, String estado, Timestamp fechaCreacion, Timestamp fechaFinalizacion, String emailUsuarioCreador) {
+    public Tarea(int id, String detalle, String prioridad, String estado, String fechaCreacion, String fechaFinalizacion, String emailUsuarioCreador) {
         this.id = id;
         this.detalle = detalle;
         this.prioridad = prioridad;
@@ -37,11 +39,11 @@ public class Tarea {
         return estado;
     }
 
-    public Timestamp getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public Timestamp getFechaFinalizacion() {
+    public String getFechaFinalizacion() {
         return fechaFinalizacion;
     }
 

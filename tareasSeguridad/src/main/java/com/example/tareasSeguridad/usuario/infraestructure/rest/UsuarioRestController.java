@@ -4,6 +4,7 @@ import com.example.tareasSeguridad.usuario.application.UsuarioUseCases;
 import com.example.tareasSeguridad.usuario.domain.Usuario;
 import com.example.tareasSeguridad.usuario.domain.UsuarioRepository;
 import com.example.tareasSeguridad.usuario.infraestructure.db.UsuarioPostgresRepository;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,15 +19,9 @@ public class UsuarioRestController {
         this.usuarioUseCases = new UsuarioUseCases(new UsuarioPostgresRepository());
     }
 
-    @PostMapping("/api/usuarios/registro")
-    boolean registrarse(@RequestBody Usuario usuario){
-
-       return usuarioUseCases.registrarse(usuario);
+    @GetMapping("/api/usuarios")
+    public String index(Authentication auth) {
+        //este endpoint devuelve el token
+        return "Email del token: " + auth.getName();
     }
-
-    @PostMapping("/api/usuarios/login")
-    Usuario login(@RequestBody Usuario usuario){
-        return usuarioUseCases.login(usuario);
-    }
-
 }
