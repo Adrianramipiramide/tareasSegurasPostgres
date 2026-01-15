@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TareaSQL implements TareaRepository {
@@ -22,7 +23,7 @@ public class TareaSQL implements TareaRepository {
             statement.setString(1,u.getEmail());
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
-                listaTareas.add(new Tarea(rs.getInt("id"),rs.getString("detalle"),rs.getString("prioridad"),rs.getString("estado"),rs.getTimestamp("fechacreacion"),rs.getTimestamp("fechafinalizacion"),rs.getString("emailusuariocreador")));
+                listaTareas.add(new Tarea(rs.getInt("id"),rs.getString("detalle"),rs.getString("prioridad"),rs.getString("estado"),rs.getTimestamp("fechacreacion").toString(),rs.getTimestamp("fechafinalizacion").toString(),rs.getString("emailusuariocreador")));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -39,7 +40,7 @@ public class TareaSQL implements TareaRepository {
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
-                tarea = new Tarea(rs.getInt("id"),rs.getString("detalle"),rs.getString("prioridad"),rs.getString("estado"),rs.getTimestamp("fechacreacion"),rs.getTimestamp("fechafinalizacion"),rs.getString("emailusuariocreador"));
+                tarea = new Tarea(rs.getInt("id"),rs.getString("detalle"),rs.getString("prioridad"),rs.getString("estado"),rs.getTimestamp("fechacreacion").toString(),rs.getTimestamp("fechafinalizacion").toString(),rs.getString("emailusuariocreador"));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -49,18 +50,22 @@ public class TareaSQL implements TareaRepository {
 
     @Override
     public Tarea crearTarea(Tarea t) {
-        String consulta = "insert into Tarea (id,detalle,prioridad,estado,fechacreacion,fechafinalizacion,emailusuariocreador) values (?,?,?,?,?,?,?)";
+        String consulta = "insert into Tarea (detalle,prioridad,estado,fechacreacion,fechafinalizacion,emailusuariocreador) values (?,?,?,?,?,?)";
         try{
             PreparedStatement statement = DBConnectionPostgres.getInstance().prepareStatement(consulta);
-            statement.setInt(1,t.getId());
-            statement.setString(2,t.getDetalle());
-            statement.setString(3,t.getPrioridad());
-            statement.setString(4,t.getEstado());
-            statement.setTimestamp(5,t.getFechaCreacion());
-            statement.setTimestamp(6,t.getFechaFinalizacion());
-            statement.setString(7,t.getEmailUsuarioCreador());
-            statement.execute();
 
+            statement.setString(1,t.getDetalle());
+            statement.setString(2,t.getPrioridad());
+            statement.setString(3,t.getEstado());
+            statement.setTimestamp(4, Timestamp.valueOf(t.getFechaCreacion()));
+            if(t.getFechaFinalizacion() == null){
+                statement.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+            }else{
+                statement.setTimestamp(5, Timestamp.valueOf(t.getFechaFinalizacion()));
+            }
+
+            statement.setString(6,t.getEmailUsuarioCreador());
+            statement.execute();
 
         }catch (SQLException e){
             e.printStackTrace();

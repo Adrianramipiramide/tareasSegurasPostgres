@@ -24,4 +24,8 @@ public class TareaUseCases {
         return tareaRepository.crearTarea(t);
     }
 
+    public Tarea verDetalleDeTarea (int id){
+        return tareaRepository.verDetallesDeUnaTarea(id);
+    }
+
 }

@@ -13,6 +13,17 @@ public class Tarea {
     String fechaFinalizacion;
     String emailUsuarioCreador;
 
+    public Tarea(){}
+
+    public Tarea(String detalle, String prioridad, String estado, String fechaCreacion, String fechaFinalizacion, String emailUsuarioCreador) {
+        this.detalle = detalle;
+        this.prioridad = prioridad;
+        this.estado = estado;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaFinalizacion = fechaFinalizacion;
+        this.emailUsuarioCreador = emailUsuarioCreador;
+    }
+
     public Tarea(int id, String detalle, String prioridad, String estado, String fechaCreacion, String fechaFinalizacion, String emailUsuarioCreador) {
         this.id = id;
         this.detalle = detalle;
@@ -22,6 +33,8 @@ public class Tarea {
         this.fechaFinalizacion = fechaFinalizacion;
         this.emailUsuarioCreador = emailUsuarioCreador;
     }
+
+
 
     public int getId() {
         return id;
@@ -50,4 +63,34 @@ public class Tarea {
     public String getEmailUsuarioCreador() {
         return emailUsuarioCreador;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
+    }
+
+    public void setPrioridad(String prioridad) {
+        this.prioridad = prioridad;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public void setFechaFinalizacion(String fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
+    }
+
+    public void setEmailUsuarioCreador(String emailUsuarioCreador) {
+        this.emailUsuarioCreador = emailUsuarioCreador;
+    }
 }
+
+

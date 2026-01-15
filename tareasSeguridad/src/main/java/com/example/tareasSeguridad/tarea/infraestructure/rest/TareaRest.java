@@ -4,10 +4,7 @@ import com.example.tareasSeguridad.tarea.application.TareaUseCases;
 import com.example.tareasSeguridad.tarea.domain.Tarea;
 import com.example.tareasSeguridad.tarea.infraestructure.db.TareaSQL;
 import com.example.tareasSeguridad.usuario.domain.Usuario;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,12 +18,17 @@ public class TareaRest {
     }
 
     @GetMapping("/api/tareas")
-    List<Tarea> verMisTareas(Usuario u){
+    List<Tarea> verMisTareas(@RequestBody Usuario u){
        return tareaUseCases.verMisTareas(u);
     }
 
-    @PostMapping("/api/tareas")
+        @PostMapping("/api/tareas")
     Tarea crearTarea(@RequestBody Tarea t){
         return tareaUseCases.crearTarea(t);
+    }
+
+    @GetMapping("/api/tarea/detalle/{id}")
+    Tarea verDetalleTarea(@PathVariable int id){
+       return tareaUseCases.verDetalleDeTarea(id);
     }
 }
