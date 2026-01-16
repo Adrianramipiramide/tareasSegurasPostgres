@@ -28,4 +28,12 @@ public class TareaUseCases {
         return tareaRepository.verDetallesDeUnaTarea(id);
     }
 
+    public Tarea cambiarEstadoTarea(int id,String estado){
+       return tareaRepository.cambiarEstado(id,estado);
+    }
+
+    public Tarea asignarTareaunUsuario(int idTarea, String emailUser){
+        return tareaRepository.asignarTareaAUsusario(idTarea,emailUser);
+    }
+
 }

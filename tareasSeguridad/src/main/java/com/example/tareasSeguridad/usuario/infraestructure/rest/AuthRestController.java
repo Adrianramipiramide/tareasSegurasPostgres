@@ -28,7 +28,6 @@ public class AuthRestController {
         }else{
             return false;
         }
-
     }
 
     @PostMapping("/auth/usuarios/login")
@@ -41,5 +40,4 @@ public class AuthRestController {
             return "contraseña incorrecta";
         }
     }
-
 }

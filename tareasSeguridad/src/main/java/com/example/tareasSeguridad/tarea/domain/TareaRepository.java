@@ -13,11 +13,11 @@ public interface TareaRepository {
 
     Tarea crearTarea(Tarea t);
 
-    Tarea asignarTareaAUsusario(Tarea t, Usuario u);
+    Tarea asignarTareaAUsusario(int diTarea, String emailUsuario);
 
     Tarea cambiarEstado(int idTarea, String estado);
 
-    Tarea modificarTarea(Tarea t, Tarea tareaNueva);
+    Tarea modificarTarea(int idTareaVieja, Tarea tareaNueva);
 
 
 }

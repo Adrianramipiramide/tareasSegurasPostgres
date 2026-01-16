@@ -53,7 +53,6 @@ public class TareaSQL implements TareaRepository {
         String consulta = "insert into Tarea (detalle,prioridad,estado,fechacreacion,fechafinalizacion,emailusuariocreador) values (?,?,?,?,?,?)";
         try{
             PreparedStatement statement = DBConnectionPostgres.getInstance().prepareStatement(consulta);
-
             statement.setString(1,t.getDetalle());
             statement.setString(2,t.getPrioridad());
             statement.setString(3,t.getEstado());
@@ -63,7 +62,6 @@ public class TareaSQL implements TareaRepository {
             }else{
                 statement.setTimestamp(5, Timestamp.valueOf(t.getFechaFinalizacion()));
             }
-
             statement.setString(6,t.getEmailUsuarioCreador());
             statement.execute();
 
@@ -74,15 +72,18 @@ public class TareaSQL implements TareaRepository {
     }
 
     @Override
-    public Tarea asignarTareaAUsusario(Tarea t, Usuario u) {
-        String consulta = "insert into usuario_tarea (emailusuario,idtarea) values (?,?)";
+    public Tarea asignarTareaAUsusario(int idTarea, String emailUsuario) {
+        String consulta = "insert into usuario_tarea (idtarea,emailusuario) values (?,?)";
         try{
             PreparedStatement statement = DBConnectionPostgres.getInstance().prepareStatement(consulta);
+            statement.setInt(1,idTarea);
+            statement.setString(2,emailUsuario);
+            statement.execute();
 
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return null;
+        return verDetallesDeUnaTarea(idTarea);
     }
 
     @Override
@@ -97,19 +98,26 @@ public class TareaSQL implements TareaRepository {
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return null;
+        return verDetallesDeUnaTarea(idTarea);
     }
 
     @Override
-    public Tarea modificarTarea(Tarea t, Tarea tareaNueva) {
-        String consulta = "update Tarea set ?.................";
+    public Tarea modificarTarea(int idTareaVieja, Tarea tareaNueva) {
+        String consulta = "update Tarea set detalle = ? AND prioridad = ? AND estado = ? AND fechacreacion = ? AND fechafinalizacion = ? where id = ?";
 
         try{
             PreparedStatement statement= DBConnectionPostgres.getInstance().prepareStatement(consulta);
+            statement.setString(1,tareaNueva.getDetalle());
+            statement.setString(2,tareaNueva.getPrioridad());
+            statement.setString(3,tareaNueva.getEstado());
+            statement.setString(4,tareaNueva.getFechaCreacion());
+            statement.setString(5,tareaNueva.getFechaFinalizacion());
+            statement.setInt(6,tareaNueva.getId());
+            statement.execute();
 
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return null;
+        return new Tarea();
     }
 }

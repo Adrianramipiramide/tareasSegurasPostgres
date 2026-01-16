@@ -1,5 +1,4 @@
 package com.example.tareasSeguridad.tarea.infraestructure.rest;
-
 import com.example.tareasSeguridad.tarea.application.TareaUseCases;
 import com.example.tareasSeguridad.tarea.domain.Tarea;
 import com.example.tareasSeguridad.tarea.infraestructure.db.TareaSQL;
@@ -22,7 +21,7 @@ public class TareaRest {
        return tareaUseCases.verMisTareas(u);
     }
 
-        @PostMapping("/api/tareas")
+    @PostMapping("/api/tareas")
     Tarea crearTarea(@RequestBody Tarea t){
         return tareaUseCases.crearTarea(t);
     }
@@ -30,5 +29,15 @@ public class TareaRest {
     @GetMapping("/api/tarea/detalle/{id}")
     Tarea verDetalleTarea(@PathVariable int id){
        return tareaUseCases.verDetalleDeTarea(id);
+    }
+
+    @PutMapping("/api/tareas/{estado}/{id}")
+    Tarea cambiarEstado(@PathVariable String estado, @PathVariable int id){
+        return tareaUseCases.cambiarEstadoTarea(id, estado);
+    }
+
+    @PostMapping("/api/tareas/asignar/{idTarea}")
+    Tarea asignarTareaUsuario(@PathVariable int idTarea, @RequestBody Usuario usuario){
+        return tareaUseCases.asignarTareaunUsuario(idTarea,usuario.getEmail());
     }
 }
