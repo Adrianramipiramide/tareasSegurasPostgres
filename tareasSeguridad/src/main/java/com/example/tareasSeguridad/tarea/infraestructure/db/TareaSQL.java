@@ -103,7 +103,7 @@ public class TareaSQL implements TareaRepository {
 
     @Override
     public Tarea modificarTarea(int idTareaVieja, Tarea tareaNueva) {
-        String consulta = "update Tarea set detalle = ? AND prioridad = ? AND estado = ? AND fechacreacion = ? AND fechafinalizacion = ? where id = ?";
+        String consulta = "update Tarea set detalle = ? , prioridad = ? , estado = ? , fechacreacion = ? , fechafinalizacion = ? where id = ?";
 
         try{
             PreparedStatement statement= DBConnectionPostgres.getInstance().prepareStatement(consulta);

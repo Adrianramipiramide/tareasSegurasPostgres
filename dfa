@@ -1,0 +1,53 @@
+[33mcommit dde99e09c3cec3a7642db389d4e7ac2d5f42125d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Adrian Rami Piramide <230053@fppiramide.com>
+Date:   Fri Jan 16 11:10:02 2026 +0100
+
+    modificar tarea a medias
+
+[33mcommit 03a8337db0c64877574fd085e4898f201c988434[m
+Author: Adrian Rami Piramide <230053@fppiramide.com>
+Date:   Thu Jan 15 12:31:42 2026 +0100
+
+    verTareasFuncionando
+
+[33mcommit e57f56d27ae0084d622439fc7b98cb01c28c9b2f[m
+Author: Adrian Rami Piramide <230053@fppiramide.com>
+Date:   Tue Jan 13 14:19:44 2026 +0100
+
+    casi finish
+
+[33mcommit c639cb8ff63f2a2dbbc07854d41ad4f5d7d60ccd[m
+Author: Adrian Rami Piramide <230053@fppiramide.com>
+Date:   Mon Jan 12 14:08:06 2026 +0100
+
+    rest funcionales, falta rest de seguridad
+
+[33mcommit 92754b498eb78f283fb22147eed77f51c9d44951[m
+Author: Adrián Rami <230053@fppiramide.com>
+Date:   Sun Jan 11 20:59:45 2026 +0100
+
+    sql casi terminado
+
+[33mcommit d316d69dc14cc78129dfeacf99a3a5d78525ffae[m
+Author: Adrián Rami <230053@fppiramide.com>
+Date:   Sun Jan 11 14:42:25 2026 +0100
+
+    seguridad terminada
+
+[33mcommit c26234cf2522c4472e3b1c1b17dc3797139a5608[m
+Author: Adrián Rami <230053@fppiramide.com>
+Date:   Sat Jan 10 21:06:53 2026 +0100
+
+    configuraciones seguridad con token
+
+[33mcommit c250731aec7e85c4682c920724d37e8c3758d9be[m
+Author: Adrian Rami Piramide <230053@fppiramide.com>
+Date:   Fri Jan 9 11:43:07 2026 +0100
+
+    carpetitas
+
+[33mcommit 24f31b8ecc6db281f0f36434e22ef9aac7573039[m
+Author: Adrian Rami Piramide <230053@fppiramide.com>
+Date:   Fri Jan 9 10:53:49 2026 +0100
+
+    repo vaciao con dependencias
